@@ -1,150 +1,260 @@
+// * {
+//   list-style: none;
+//   box-sizing: border-box;
+//   font-family: 'Noto Sans KR', sans-serif;
+//   margin: 0;
+//   padding: 0;
+// }
+
+
+// .App {
+//   width: 100vw;
+//   height: 100vh;
+//   display: flex;
+// }
+
+// .nav {
+//   width: 30%;
+//   height: 100%;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+
+//   .inner {
+//     width: 90%;
+//     height: 90%;
+
+//     .list {
+//       width: 90%;
+//       height: 85%;
+//       overflow-y: scroll;
+//       border: .05vw solid green;
+//       transition: .5s;
+
+//       &:hover{
+//         box-shadow: 0 0 1vw 0 rgba(green,.4);
+//       }
+
+//       &>li {
+//         &.active {
+//           font-weight: 700;
+//           color: green;
+//         }
+
+//         &:not(:last-child){
+//           border-bottom: .005vw solid rgba(black, .15);
+//         }
+
+//         width: 100%;
+//         height: 20%;
+//         background-color: #fff;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         cursor: pointer;
+
+//         &:hover {
+//           font-weight: 700;
+//           background-color: rgba(black, .05);
+//         }
+//       }
+//     }
+//   }
+// }
+
+// .content {
+//   width: 75%;
+//   height: 100%;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+
+//   .inner {
+//     width: 95%;
+//     height: 90%;
+//     display: flex;
+//     justify-content: space-between;
+
+//     .targetBox {
+//       width: 33%;
+//       height: 100%;
+//       display: flex;
+//       flex-direction: column;
+//       border: 1px solid black;
+
+//       .target {
+//         padding: 2%;
+//         width: 100%;
+//         height: 90%;
+//         resize: none;
+//         font-weight: 100;
+//         color: blue;
+//         font-size: .5vw;
+//         border: none;
+//       }
+
+//       .btnCopy {
+//         width: 100%;
+//         height: 10%;
+//         border: none;
+//         border-top: 1px solid black;
+//         cursor: pointer;
+//         font-size: 1.2vw;
+
+//         &:hover {
+//           background-color: rgba(green, .7);
+//           color: white;
+//           font-weight: 700;
+//         }
+
+//         &:active{
+//           background-color: rgba(green, .9);
+//           color: white;
+//           font-size: 95%;
+//         }
+//       }
+
+//     }
+//   }
+// }
+
+// .alertMsg{
+//   width: 20vw;
+//   height: 10vh;
+//   position: fixed;
+//   color: white;
+//   left: 0;
+//   right: 0;
+//   top: 0;
+//   bottom: 0;
+//   margin: auto;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   background-color: black;
+//   border-radius: 2vw;
+//   opacity: 0;
+// }
+
+// @keyframes copyMsg {
+//   0%{
+//     opacity: 0;
+//   }
+//   75%{
+//     opacity: 1;
+//   }
+//   100%{
+//     opacity: 0;
+//   }
+
+// }
+
 * {
-  list-style: none;
   box-sizing: border-box;
-  font-family: 'Noto Sans KR', sans-serif;
   margin: 0;
   padding: 0;
+  user-select: none;
 }
-
 
 .App {
   width: 100vw;
   height: 100vh;
-  display: flex;
 }
 
-.nav {
-  width: 30%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .inner {
-    width: 90%;
-    height: 90%;
-
-    .list {
-      width: 90%;
-      height: 85%;
-      overflow-y: scroll;
-      border: .05vw solid green;
-      transition: .5s;
-
-      &:hover{
-        box-shadow: 0 0 1vw 0 rgba(green,.4);
-      }
-
-      &>li {
-        &.active {
-          font-weight: 700;
-          color: green;
-        }
-
-        &:not(:last-child){
-          border-bottom: .005vw solid rgba(black, .15);
-        }
-
-        width: 100%;
-        height: 20%;
-        background-color: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-
-        &:hover {
-          font-weight: 700;
-          background-color: rgba(black, .05);
-        }
-      }
-    }
-  }
-}
-
-.content {
-  width: 75%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .inner {
-    width: 95%;
-    height: 90%;
-    display: flex;
-    justify-content: space-between;
-
-    .targetBox {
-      width: 33%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      border: 1px solid black;
-
-      .target {
-        padding: 2%;
-        width: 100%;
-        height: 90%;
-        resize: none;
-        font-weight: 100;
-        color: blue;
-        font-size: .5vw;
-        border: none;
-      }
-
-      .btnCopy {
-        width: 100%;
-        height: 10%;
-        border: none;
-        border-top: 1px solid black;
-        cursor: pointer;
-        font-size: 1.2vw;
-
-        &:hover {
-          background-color: rgba(green, .7);
-          color: white;
-          font-weight: 700;
-        }
-
-        &:active{
-          background-color: rgba(green, .9);
-          color: white;
-          font-size: 95%;
-        }
-      }
-
-    }
-  }
-}
-
-.alertMsg{
-  width: 20vw;
-  height: 10vh;
-  position: fixed;
-  color: white;
+.inner {
+  width: 90%;
+  height: 90%;
+  position: absolute;
   left: 0;
   right: 0;
+  margin: auto;
   top: 0;
   bottom: 0;
-  margin: auto;
+  overflow: hidden;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: black;
-  border-radius: 2vw;
-  opacity: 0;
+  justify-content: space-around;
+  
 }
 
-@keyframes copyMsg {
-  0%{
-    opacity: 0;
+.menuList {
+  width: 30vw;
+  height: 90vh;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+
+  /* Firefox */
+  &::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera*/
   }
-  75%{
-    opacity: 1;
-  }
-  100%{
-    opacity: 0;
-  }
+
+
+  .menuEl {
+    width: 90%;
+    height: 15vh;
+    border: .1vw solid #2279E4;
+    color: #2279E4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5vh;
+    font-size: 1vw;
+    border-radius: .5vw;
+    cursor: pointer;
+    transition: .3s;
+    margin: 1vw;
+
+    &:hover{
+      scale: 1.03;
+      font-weight: 700;
+    }
+
+    &:active{
+      scale: .95;
+    }
+
+    &.active{
+      background-color: #2279E4;
+      color: white;
+      font-weight: 500;
+      font-size: 1.1vw;
+      margin-left: 2vw;
+    }
   
+  }
+}
+
+.contentBox{
+  width: 60%;
+  height: 100%;
+  background-color: #2279E4;
+  position: relative;
+}
+
+.sqlList{
+  width: 100%;
+  height: 40%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+
+  .sqlEl{
+    width: 30%;
+    height: 90%;
+    background-color: white;
+    padding: 2vw;
+
+    .number{
+      font-weight: 700;
+      font-size: 1.5vw;
+    }
+
+    .name{
+      font-size: 2.5vw;
+      font-weight: 700;
+    }
+  }
 }

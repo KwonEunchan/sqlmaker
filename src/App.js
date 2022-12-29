@@ -4,7 +4,38 @@ import info from './info.json'
 function App() {
   return (
     <div className="App">
-      <div className="nav">
+      {
+        <div className="inner">
+            <div className="menuList">
+        {
+            info.info.map((el,index)=>{
+              return(
+                <div className="menuEl" key={index} onClick={(e)=>{
+                  document.querySelectorAll('.menuEl').forEach((el)=>{
+                    el.classList.remove('active')
+                  })
+                  e.target.classList.add('active')                                    
+                }}>{el.name}</div>
+              )
+            })
+          }
+          </div>
+          <div className="contentBox">
+            <div className="sqlList">
+              {
+                [1,2,3].map((el,index)=>{
+                  return(
+                  <div className="sqlEl">
+                    <p className="number">0{el}.</p>
+                    <p className='name'>SELECT</p>
+                  </div>
+                  )
+                })
+              }
+          </div>
+          </div>
+        </div>
+      /* <div className="nav">
         <div className="inner">
           <ul className="list">
             {
@@ -108,7 +139,7 @@ function App() {
           </div> 
       </div>  
 
-      <div className='alertMsg'>복사되었습니다!</div>
+      <div className='alertMsg'>복사되었습니다!</div> */}
     </div>
   );
 }
