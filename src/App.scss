@@ -173,7 +173,7 @@
   overflow: hidden;
   display: flex;
   justify-content: space-around;
-  
+
 }
 
 .menuList {
@@ -190,6 +190,16 @@
     /* Chrome, Safari, Opera*/
   }
 
+  @keyframes menuShow {
+    0%{
+      opacity: 0;
+      margin-left: -10vw;
+    }
+    100%{
+      opacity: 1;
+      visibility: visible;
+    }
+  }
 
   .menuEl {
     width: 90%;
@@ -205,56 +215,176 @@
     cursor: pointer;
     transition: .3s;
     margin: 1vw;
+    visibility: hidden;
+    animation: menuShow .5s linear forwards;
 
-    &:hover{
+    @for $index from 0 to 100{
+      &:nth-child(#{$index}){
+        animation-delay: $index*.15s;
+      }
+    }
+
+    &:hover {
       scale: 1.03;
       font-weight: 700;
     }
 
-    &:active{
+    &:active {
       scale: .95;
     }
 
-    &.active{
+    &.active {
       background-color: #2279E4;
       color: white;
       font-weight: 500;
       font-size: 1.1vw;
       margin-left: 2vw;
     }
-  
+
   }
 }
 
-.contentBox{
+.contentBox {
   width: 60%;
   height: 100%;
   background-color: #2279E4;
   position: relative;
+
+  .inner{
+    width: 95%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .intro {
+    width: 100%;
+    height: 50%;
+    background-color: white;
+  }
+
+  .sqlList {
+    width: 100%;
+    height: 45%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+
+    .sqlEl {
+      width: 32%;
+      height: 90%;
+      background-color: white;
+      padding: 2vw;
+      cursor: pointer;
+      transition: .2s;
+      position: relative;
+
+      &:hover {
+        color: #2279E4;
+        margin-bottom: 1vh;
+
+        .info {
+          font-weight: 100;
+          color: black;
+        }
+      }
+
+      .info {
+        font-size: 1vw;
+        font-weight: 100;
+        color: black;
+      }
+
+      .number {
+        font-weight: 700;
+        font-size: 1.5vw;
+      }
+
+      .name {
+        font-size: 2.5vw;
+        font-weight: 700;
+      }
+
+      .btnList {
+        width: 100%;
+        height: 50%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        button {
+          width: 45%;
+          height: 45%;
+          cursor: pointer;
+          border: none;
+          box-shadow: 0 0 .1vw 0 rgba($color: #000000, $alpha: .6);
+          background-color: white;
+          font-weight: 700;
+          transition: .3s;
+        }
+
+        .copy {
+          color: #2279E4;
+
+          &:hover {
+            background-color: #2279E4;
+            color: white;
+          }
+        }
+
+        .about:hover {
+          background-color: #EEEEEE;
+
+        }
+      }
+    }
+  }
 }
 
-.sqlList{
-  width: 100%;
-  height: 40%;
+.aboutPage{
+  width: 100vw;
+  height: 100vh;
   position: absolute;
-  bottom: 0;
+  left: 0;
+  top: 0;
+  background-color: rgba(black,.6);
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  z-index: -1;
 
-  .sqlEl{
-    width: 30%;
-    height: 90%;
+  &.active{
+    opacity: 1;
+    z-index: 2;
+  }
+
+  .aboutBox{
+    width: 60%;
+    height: 80%;
     background-color: white;
-    padding: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    .number{
-      font-weight: 700;
-      font-size: 1.5vw;
-    }
+    .inner{
+      width: 80%;
+      height: 90%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
 
-    .name{
-      font-size: 2.5vw;
-      font-weight: 700;
+      .target{
+        width: 100%;
+        height: 80%;
+        resize: none;
+        padding: 5%;
+        font-weight: 400;
+      }
     }
   }
 }
