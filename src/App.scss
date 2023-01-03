@@ -191,11 +191,12 @@
   }
 
   @keyframes menuShow {
-    0%{
+    0% {
       opacity: 0;
       margin-left: -10vw;
     }
-    100%{
+
+    100% {
       opacity: 1;
       visibility: visible;
     }
@@ -218,8 +219,8 @@
     visibility: hidden;
     animation: menuShow .5s linear forwards;
 
-    @for $index from 0 to 100{
-      &:nth-child(#{$index}){
+    @for $index from 0 to 100 {
+      &:nth-child(#{$index}) {
         animation-delay: $index*.15s;
       }
     }
@@ -244,13 +245,26 @@
   }
 }
 
+@keyframes contentShow {
+  0% {
+    opacity: 0;
+    margin-right: -50vw;
+  }
+
+  100% {
+    opacity: 1;
+
+  }
+}
+
 .contentBox {
   width: 60%;
   height: 100%;
   background-color: #2279E4;
   position: relative;
+  animation: contentShow .5s linear forwards;
 
-  .inner{
+  .inner {
     width: 95%;
     height: 95%;
     display: flex;
@@ -344,33 +358,43 @@
   }
 }
 
-.aboutPage{
+.aboutPage {
   width: 100vw;
   height: 100vh;
   position: absolute;
   left: 0;
   top: 0;
-  background-color: rgba(black,.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: rgba(black, .6);
   opacity: 0;
   z-index: -1;
+  overflow: hidden;
 
-  &.active{
+  &.active {
     opacity: 1;
     z-index: 2;
+
+    .aboutBox {
+      bottom: 0;
+    }
   }
 
-  .aboutBox{
+  .aboutBox {
     width: 60%;
     height: 80%;
     background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 0;
+    bottom: -100vh;
+    transition: .5s;
+    box-shadow: 0 0 1vw 0 rgba(black, .4);
 
-    .inner{
+    .inner {
       width: 80%;
       height: 90%;
       position: relative;
@@ -378,7 +402,7 @@
       flex-direction: column;
       justify-content: space-around;
 
-      .target{
+      .target {
         width: 100%;
         height: 80%;
         resize: none;
@@ -386,5 +410,30 @@
         font-weight: 400;
       }
     }
+  }
+}
+
+.copyMsg {
+  width: 15vw;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  border-radius: 5%;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 3;
+  opacity: 0;
+  transition: .5s;
+  background-color: #000000;
+  color: white;
+
+  &.active {
+    opacity: 1;
+    bottom: 5%;
   }
 }

@@ -72,6 +72,7 @@ function App() {
 
   return (
     <div className="App">
+      <div className='copyMsg'>복사되었습니다</div>
       {
         
         <div className="aboutPage" onClick={(e)=>{
@@ -131,6 +132,10 @@ function App() {
                         console.log(document.querySelector('.target'))
                         document.querySelector('.target').select()
                         document.execCommand('copy')
+                        document.querySelector('.copyMsg').classList.add('active')
+                        setTimeout(()=>{
+                          document.querySelector('.copyMsg').classList.remove('active')
+                        },1000)
                       }}>복 사</button>
                       <button className='about' onClick={(e)=>{
                         document.querySelector('.aboutPage').classList.toggle('active')
