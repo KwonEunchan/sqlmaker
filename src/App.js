@@ -16,7 +16,7 @@ function makeSelect(ptr){
   copy += '\t, IF_DT\n'
   copy += '\t, \'정상이관\' AS IF_RES\n'
   copy += '\nFROM\n\t'
-  copy += info.info[ptr].table
+  copy += info.info[ptr].src
   copy += '\n\nWHERE 1=1\n\tAND '
   copy += info.info[ptr].condition
   
@@ -25,7 +25,7 @@ function makeSelect(ptr){
 
 function makeInsert(ptr){
   let copy = ''
-  copy += `INSERT INTO ${info.info[ptr].table}\n(\n`
+  copy += `INSERT INTO ${info.info[ptr].target}\n(\n`
   info.info[ptr].column.forEach((columnName,index)=>{
     copy +=  index===0 ? '\t  ' : '\t, ' 
     copy += columnName
@@ -43,7 +43,7 @@ function makeInsert(ptr){
 
 function makeUpdate(ptr){
   let copy = ''
-  copy = `UPDATE ${info.info[ptr].table}\n`
+  copy = `UPDATE ${info.info[ptr].src}\n`
   copy += '\nSET\n'
   copy += '\tIF_YN = :/MSG_DB_COLUMN_ARR_0.LIST*.IF_YN\n'
   copy += '\t,IF_DT = SYSDATE\n'
@@ -61,7 +61,7 @@ function makeUpdate(ptr){
 
 function App() {
   const [ptr,setPtr] = useState(0)
-  const [sql,setSql] = useState('')
+  
 
   useEffect(()=>{
     document.querySelectorAll('.menuEl').forEach((el,index)=>{
@@ -81,8 +81,8 @@ function App() {
           e.stopPropagation()
         }}>
           <div className="inner">
-            <p>{info.info[ptr].name} - {sql.split(' ',1)} </p>
-            <textarea className="target" disabled></textarea>
+            <p>{info.info[ptr].name} </p>
+            <textarea className="target" readOnly></textarea>
           </div>
         </div>
       </div>
